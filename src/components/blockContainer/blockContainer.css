@@ -29,3 +29,9 @@
   color: rgb(209, 213, 214);
   text-align: center;
 }
+
+@media (min-width: 800px) {
+  .container {
+    width: 400px;
+  }
+}

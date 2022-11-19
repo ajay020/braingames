@@ -33,12 +33,15 @@
 }
 
 .correct {
-  /* border: 1px solid green; */
-  color: green;
   opacity: 0;
 }
 .incorrect {
-  /* border: 1px solid red; */
-  color: red;
   opacity: 0;
+}
+
+@media (min-width: 800px) {
+  .block {
+    width: 80px;
+    height: 80px;
+  }
 }
