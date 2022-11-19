@@ -1,0 +1,31 @@
+.container {
+  background-color: rgb(83, 84, 85);
+  width: 300px;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+.container button {
+  outline: none;
+  border: none;
+  /* background-color: aquamarine; */
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(209, 213, 214);
+}
+.blockContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* border: 1px solid black; */
+  background-color: rgb(59, 59, 60);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.successTxt {
+  color: rgb(209, 213, 214);
+  text-align: center;
+}

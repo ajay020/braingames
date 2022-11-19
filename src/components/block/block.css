@@ -1,0 +1,44 @@
+.block {
+  border: 1px solid rgb(104, 102, 102);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: bolder;
+  background-color: rgb(12, 14, 14);
+  position: relative;
+}
+.block img {
+  width: 100%;
+  height: 100%;
+}
+.layer {
+  position: absolute;
+  background-color: rgb(3, 42, 37);
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.show {
+  opacity: 0;
+}
+.block p {
+  text-align: center;
+}
+
+.block:hover {
+  cursor: pointer;
+}
+
+.correct {
+  /* border: 1px solid green; */
+  color: green;
+  opacity: 0;
+}
+.incorrect {
+  /* border: 1px solid red; */
+  color: red;
+  opacity: 0;
+}
