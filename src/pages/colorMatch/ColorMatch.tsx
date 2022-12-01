@@ -110,6 +110,8 @@ const ColorMatch = () => {
 
     if (ans === "yes" && currBox.color === currText.meaning) {
       setScore((pre) => pre + 5);
+    }else if(ans ==="no" && currBox.color !== currText.meaning){
+        setScore((pre) => pre + 5);
     }
 
     setCurrIndex((preIndex) => {
