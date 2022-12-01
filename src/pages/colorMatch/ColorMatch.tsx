@@ -56,10 +56,10 @@ coloredBoxList.sort(() => Math.random() - 0.6);
 textBoxList.sort(() => Math.random() - 0.6);
 
 const ColorMatch = () => {
-
   const [currIndex, setCurrIndex] = useState<number>(0);
-  const [score, setScore] = useState<number>(0);
+  const [score, setScore] = useState<number>(-1);
   const [timer, setTimer] = useState<string>("1:30");
+  const [displayModel, setDisplayModel] = useState<boolean>(true);
 
   const [boxList, setBoxList] = useState(coloredBoxList);
   const [textList, setTextBoxList] = useState(textBoxList);
@@ -71,25 +71,38 @@ const ColorMatch = () => {
       let minute: number = 1;
       let second = 30;
 
+      setScore(0);
+
       timerId = setInterval(() => {
         second--;
 
         if (second == 0) {
-          minute--;
-          second = 60;
+
+            if(minute <= 0 && second <= 0){
+                setDisplayModel(true);
+                clearInterval(timerId);
+            }else{
+                minute--;
+                second = 60;
+            }
         }
 
         let min = minute <= 9 ? "0" + minute : minute;
         let sec = second <= 9 ? "0" + second : second;
 
         setTimer(`${min}:${sec}`);
+
       }, 1000);
     };
+
+    if(!displayModel){
+        startTimer();
+    }
 
     return () => {
       clearInterval(timerId);
     };
-  }, []);
+  }, [displayModel]);
 
   const clickHandler = (ans: string) => {
     let currBox = boxList[currIndex];
@@ -101,7 +114,6 @@ const ColorMatch = () => {
 
     setCurrIndex((preIndex) => {
       if (preIndex === boxList.length - 1) {
-
         //re-shuffle colors
         textList.sort(() => Math.random() - 0.6);
         boxList.sort(() => Math.random() - 0.6);
@@ -115,31 +127,51 @@ const ColorMatch = () => {
     });
   };
 
+  const startGame = () =>{
+    setDisplayModel(false);
+  }
+
+  let playBtnText = score < 0 ? 'Start' : 'Replay'
 
   return (
-    <div className="color-container">
-      <div className="color-header">
-        <p>Timer - {timer}</p>
+    <div className="container">
+        {
+            displayModel && ( <div className="model">
+               { score>=0 && <p>You scored {score} points</p> }
+            <button onClick={startGame}>
+                {playBtnText}
+            </button>
+            <button>Quit</button>
+          </div>)
+        }
+     
+      <div className="color-container">
+        <div className="color-header">
+          <p>Timer - {timer}</p>
 
-        <p>score - {score}</p>
-        <p>Does the meaning match the box color?</p>
-      </div>
-
-      <div className="box-wrapper">
-        <div
-          className="box box-color"
-          style={{ backgroundColor: boxList[currIndex].color }}
-        ></div>
-        <div className="box">
-          <p className="box-text" style={{ color: textList[currIndex].color }}>
-            {textList[currIndex].meaning}
-          </p>
+          <p>score - {score}</p>
+          <p>Does the meaning match the box color?</p>
         </div>
-      </div>
 
-      <div className="color-actions">
-        <button onClick={() => clickHandler("no")}>NO</button>
-        <button onClick={() => clickHandler("yes")}>YES</button>
+        <div className="box-wrapper">
+          <div
+            className="box box-color"
+            style={{ backgroundColor: boxList[currIndex].color }}
+          ></div>
+          <div className="box">
+            <p
+              className="box-text"
+              style={{ color: textList[currIndex].color }}
+            >
+              {textList[currIndex].meaning}
+            </p>
+          </div>
+        </div>
+
+        <div className="color-actions">
+          <button onClick={() => clickHandler("no")}>NO</button>
+          <button onClick={() => clickHandler("yes")}>YES</button>
+        </div>
       </div>
     </div>
   );

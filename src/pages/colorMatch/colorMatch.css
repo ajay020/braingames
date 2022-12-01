@@ -5,6 +5,27 @@
   --gray-transparent: #2c241d;
 }
 
+.container {
+  position: relative;
+}
+
+.model {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 70%;
+  height: 70%;
+  background-color: #2c241d;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.model button {
+  margin: 8px auto;
+}
+
 .color-container {
   background-color: var(--main-bg-color);
   width: 90%;
