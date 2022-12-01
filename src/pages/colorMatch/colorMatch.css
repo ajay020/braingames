@@ -7,16 +7,19 @@
 
 .container {
   position: relative;
+  width: 460px;
+  margin: 12px auto;
 }
 
 .model {
   position: absolute;
-  top: 20%;
-  left: 10%;
+  color: var(--light-wooden-color);
+  top: 15%;
+  left: 15%;
   width: 70%;
   height: 70%;
   background-color: #2c241d;
-  opacity: 0.9;
+  opacity: 0.8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +27,9 @@
 }
 .model button {
   margin: 8px auto;
+  /* background-color: var(--gray-transparent); */
+  /* color: var(--text-color); */
+  /* padding: 16px 12px; */
 }
 
 .color-container {
@@ -34,11 +40,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  padding: 8px 2px;
 }
 .color-header {
-  background-color: var(--light-wooden-color);
   width: 100%;
   text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: end;
+  /* background-color: var(--light-wooden-color); */
+}
+
+.control {
+  background-color: var(--light-wooden-color);
+  margin: auto 8px;
+  padding: 1px 4px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tip-text {
+  padding: 0;
+  margin: 18px 0;
+  color: white;
 }
 
 .box {

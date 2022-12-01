@@ -147,10 +147,11 @@ const ColorMatch = () => {
      
       <div className="color-container">
         <div className="color-header">
-          <p>Timer - {timer}</p>
-
-          <p>score - {score}</p>
-          <p>Does the meaning match the box color?</p>
+            <div className="controls">
+                <span className="control">Timer - {timer}</span>
+                <span className="control">score - {score}</span>
+            </div>
+          <p className="tip-text">Does the meaning match the box color?</p>
         </div>
 
         <div className="box-wrapper">
