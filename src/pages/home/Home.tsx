@@ -1,11 +1,13 @@
 import { Link} from 'react-router-dom'
 
-import wink from '../../assets/images/wink.png';
+import tiles from '../../assets/tiles.png'
+import colormatch from '../../assets/color-match.png'
+
 import './home.css'
 
 const gameList = [
-    {id:1,thumbnail : wink, url : "/match-pair"},
-    {id:2,thumbnail : wink, url : "/identify-color"},
+    {id:1,title:"Match Pairs", thumbnail : tiles, url : "/match-pair"},
+    {id:2, title:"Identify Color", thumbnail : colormatch, url : "/identify-color"},
 ]
 
 const Home = () => {
@@ -15,9 +17,9 @@ const Home = () => {
         {
             gameList.map(game => {
                 return (
-                    <Link to={game.url} target="_blank"  key={game.id}>
-                        <figure className="thumbcard">
-                            <figcaption>Game title</figcaption>
+                    <Link  className="thumbcard" to={game.url} target="_blank"  key={game.id}>
+                        <figure>
+                            <figcaption>{game.title}</figcaption>
                             <img src={game.thumbnail} alt="" />
                         </figure>
                 </Link>)
