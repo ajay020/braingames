@@ -3,7 +3,7 @@ import {Route, Routes} from 'react-router-dom'
 import BlockContainer from './components/blockContainer/BlockContainer'
 import ColorMatch from './pages/colorMatch/ColorMatch'
 import Home from './pages/home/Home'
-// import './App.css';
+import Page404 from './pages/page404/page404'
 
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/identify-color' element={<ColorMatch/>}/>
             <Route path='/match-pair' element={<BlockContainer/>}/>
+            <Route path='*' element={<Page404/>}/>
+
         </Routes>
     </div>
   )
