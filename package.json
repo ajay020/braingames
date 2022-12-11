@@ -1,6 +1,6 @@
 {
   "name": "braingames",
-  "private": true,
+  "private": false,
   "homepage": "https://ajay020.github.io/braingames",
   "version": "0.0.0",
   "type": "module",
